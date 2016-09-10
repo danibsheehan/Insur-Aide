@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, PropTypes } from 'react';
 import {
     StyleSheet,
     Text,
@@ -47,16 +47,15 @@ class ResultList extends Component {
             <ListView dataSource={this.state.data} renderRow={this.renderRow}/>
         );
     }
-
 }
 
 const styles = StyleSheet.create({
     list:{
-        flexDirection:"row"
+        flexDirection:"row",
     },
     thumbnail:{
         width: 50,
-        height: 50
+        height: 50,
     },
     summary:{
 
