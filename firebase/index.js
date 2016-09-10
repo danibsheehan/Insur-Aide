@@ -8,11 +8,18 @@ var config = {
 };
 
 const firebaseApp = firebase.initializeApp(config);
+const usersRef = firebaseApp.database().ref("users");
 
-export {firebaseApp}
+export {firebaseApp, createUser}
 
 function createUser (name, description, location, story, image, badges) {
-
+	usersRef.child('sam').set({
+      username: "taffy",
+      location: "here",
+      story: "was born",
+      badges: 0,
+      profile_picture : "none"
+    });
 }
 
 function createMessage (message, to, from) {

@@ -12,24 +12,13 @@ import {
   View
 } from 'react-native';
 import Test from './components/testComp.js'
-// import {firebaseApp} from './firebase'
+import {firebaseApp, createUser} from './firebase'
 
-import * as firebase from 'firebase';
-
-var config = {
-    apiKey: "AIzaSyDmqsfVyAB0rmYpms3YczKsrFPrYTXuyes",
-    authDomain: "reactapp-a97ee.firebaseapp.com",
-    databaseURL: "https://reactapp-a97ee.firebaseio.com",
-    storageBucket: "reactapp-a97ee.appspot.com",
-};
-
-const firebaseApp = firebase.initializeApp(config);
-
-
+//this.usersRef = firebaseApp.database().ref("users");
 class ReactApp extends Component {
   constructor (props) {
     super(props)
-    this.usersRef = firebaseApp.database().ref();
+    
   }
   render() {
     return (
@@ -50,14 +39,8 @@ class ReactApp extends Component {
     );
   }
   _createUser (name, location, story, image, badges) {
-    this.usersRef.push({
-      username: "taffy",
-      location: "here",
-      story: "was born",
-      badges: 0,
-      profile_picture : "none"
-    });
-    console.log(this.usersRef)
+    createUser()
+    console.log(createUser)
   }
   _test() {
     console.log("stuff")
