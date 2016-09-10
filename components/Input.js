@@ -1,5 +1,6 @@
 import React, { Component, PropTypes } from 'react';
-import { AppRegistry, StyleSheet, Text, TextInput, View, TouchableOpacity } from 'react-native';
+import { AppRegistry, Text, TextInput, View, TouchableOpacity } from 'react-native';
+import { styles } from '../styles'
 
 export default class Input extends Component {
     constructor(props) {
@@ -27,12 +28,12 @@ export default class Input extends Component {
     }
 }
 
-var styles = StyleSheet.create({
-    text: {
-        color: '#FF1744',
-    },
-    inputBox: {
-        width: 150,
-        height: 16
-    }
-});
+// var styles = StyleSheet.create({
+//     text: {
+//         color: '#FF1744',
+//     },
+//     inputBox: {
+//         width: 150,
+//         height: 16
+//     }
+// });
