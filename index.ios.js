@@ -11,13 +11,11 @@ import {
   Text,
   View
 } from 'react-native';
-import Input from './components/Input'
 
 class ReactApp extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <Input />
         <Text style={styles.welcome}>
           Welcome to React Native!
         </Text>
