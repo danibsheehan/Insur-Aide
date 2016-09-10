@@ -12,14 +12,24 @@ import {
   View
 } from 'react-native';
 import Test from './components/testComp.js'
-import {firebaseApp} from './firebase'
+// import {firebaseApp} from './firebase'
 
+import * as firebase from 'firebase';
+
+var config = {
+    apiKey: "AIzaSyDmqsfVyAB0rmYpms3YczKsrFPrYTXuyes",
+    authDomain: "reactapp-a97ee.firebaseapp.com",
+    databaseURL: "https://reactapp-a97ee.firebaseio.com",
+    storageBucket: "reactapp-a97ee.appspot.com",
+};
+
+const firebaseApp = firebase.initializeApp(config);
 
 
 class ReactApp extends Component {
   constructor (props) {
     super(props)
-    this.itemsRef = firebaseApp.database().ref();
+    this.usersRef = firebaseApp.database().ref();
   }
   render() {
     return (
@@ -28,7 +38,7 @@ class ReactApp extends Component {
         <Text style={styles.welcome}>
           Welcome to React Native!
         </Text>
-        <Text onPress={this._test.bind(this)} style={styles.instructions}>
+        <Text onPress={this._createUser.bind(this)} style={styles.instructions}>
           To get started, edit index.ios.js
         </Text>
         <Text style={styles.instructions}>
@@ -38,6 +48,16 @@ class ReactApp extends Component {
         <Test></Test>
       </View>
     );
+  }
+  _createUser (name, location, story, image, badges) {
+    this.usersRef.push({
+      username: "taffy",
+      location: "here",
+      story: "was born",
+      badges: 0,
+      profile_picture : "none"
+    });
+    console.log(this.usersRef)
   }
   _test() {
     console.log("stuff")
