@@ -37,6 +37,6 @@ var styles = StyleSheet.create({
     borderStyle: 'solid',
     borderRadius: 4,
     borderWidth: 1,
-    padding: 8
+    padding: 8,
   }
 });
