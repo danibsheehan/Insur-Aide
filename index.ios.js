@@ -1,70 +1,45 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- * @flow
- */
+import React, { Component, PropTypes } from 'react';
+import { Navigator, Text, View, AppRegistry } from 'react-native';
+import HomeScene from './components/HomeScene'
+import Test from "./components/Test";
+import GetHelp from "./components/GetHelp";
 
-import React, { Component } from 'react';
-import {
-  AppRegistry,
-  StyleSheet,
-  Text,
-  View
-} from 'react-native';
-import Test from './components/testComp.js'
-import {firebaseApp, createUser} from './firebase'
+export default class NavigationApp extends Component {
+  _renderScene(route, navigator){
+    var globalNavigatorProps = {navigator}
 
-//this.usersRef = firebaseApp.database().ref("users");
-class ReactApp extends Component {
-  constructor (props) {
-    super(props)
-    
+    console.log(route)
+    switch(route.ident) {
+      case "Home":
+        return ( <View style={{marginTop: 50}}>
+            <Text style={{textAlign: 'center'}}>Penetrating the Bureaucracy</Text>
+            <HomeScene {...globalNavigatorProps}
+            />
+            </View>
+          )
+      case "ProvideHelp":
+        return (
+          <Test/>
+          )
+      case "GetHelp":
+        return (
+          <GetHelp />
+        )
+      default:
+        return <Text>'!!Route Error!!'</Text>
+    }
+
   }
+
   render() {
     return (
-      <View style={styles.container}>
-
-        <Text style={styles.welcome}>
-          Welcome to React Native!
-        </Text>
-        <Text onPress={this._createUser.bind(this)} style={styles.instructions}>
-          To get started, edit index.ios.js
-        </Text>
-        <Text style={styles.instructions}>
-          Press Cmd+R to reload,{'\n'}
-          Cmd+D or shake for dev menu
-        </Text>
-        <Test></Test>
-      </View>
-    );
+      <Navigator
+        initialRoute={{ ident: 'Home' }}
+        renderScene={this._renderScene}
+        configureScene={(route) => ({
+          ...route.sceneConfig || Navigator.SceneConfigs.FloatFromRight })} 
+      />
+    )
   }
-  _createUser (name, location, story, image, badges) {
-    createUser("anna", "there", "life!", "none", 0)
-    console.log(createUser)
-  }
-  _test() {
-    console.log("stuff")
-    console.log(this.itemsRef)
-  }
-}
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#F5FCFF',
-  },
-  welcome: {
-    fontSize: 20,
-    textAlign: 'center',
-    margin: 10,
-  },
-  instructions: {
-    textAlign: 'center',
-    color: '#333333',
-    marginBottom: 5,
-  },
-});
-
-AppRegistry.registerComponent('ReactApp', () => ReactApp);
+}  
+AppRegistry.registerComponent('ReactApp', () => NavigationApp);
