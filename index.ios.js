@@ -39,7 +39,7 @@ class ReactApp extends Component {
     );
   }
   _createUser (name, location, story, image, badges) {
-    createUser("anna", "there", "life!", "none", 0)
+    createUser("tester", "there", "whoops!", "none", 0)
     console.log(createUser)
   }
   _test() {
