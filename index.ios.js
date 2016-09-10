@@ -1,34 +1,30 @@
 import React, { Component, PropTypes } from 'react';
 import { Navigator, Text, View, AppRegistry } from 'react-native';
 import HomeScene from './components/HomeScene'
+import Test from "./components/Test";
+import GetHelp from "./components/GetHelp";
 
-export default class SimpleNavigationApp extends Component {
+export default class NavigationApp extends Component {
   _renderScene(route, navigator){
     var globalNavigatorProps = {navigator}
 
+    console.log(route)
     switch(route.ident) {
       case "Home":
         return ( <View style={{marginTop: 50}}>
             <Text style={{textAlign: 'center'}}>Penetrating the Bureaucracy</Text>
             <HomeScene {...globalNavigatorProps}
-              // title={route.title}
-              // Function to call when a new scene should be displayed           
-              onForward={ () => {    
-                const nextIndex = route.index + 1;
-                navigator.push({
-                  title: 'Scene ' + nextIndex,
-                  index: nextIndex,
-                });
-              }}
-              // Function to call to go back to the previous scene
-              onBack={() => {
-                if (route.index > 0) {
-                  navigator.pop();
-                }
-              }}
             />
             </View>
           )
+      case "ProvideHelp":
+        return (
+          <Test/>
+          )
+      case "GetHelp":
+        return (
+          <GetHelp />
+        )
       default:
         return <Text>'!!Route Error!!'</Text>
     }
@@ -40,12 +36,14 @@ export default class SimpleNavigationApp extends Component {
       <Navigator
         initialRoute={{ ident: 'Home' }}
         renderScene={this._renderScene}
+        configureScene={(route) => ({
+          ...route.sceneConfig || Navigator.SceneConfigs.FloatFromRight })} 
       />
     )
   }
 }
 
-AppRegistry.registerComponent('ReactApp', () => SimpleNavigationApp);
+AppRegistry.registerComponent('ReactApp', () => NavigationApp);
 
 // import React, { Component } from 'react';
 // import {
