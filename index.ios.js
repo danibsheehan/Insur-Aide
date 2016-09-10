@@ -11,11 +11,14 @@ import {
   Text,
   View
 } from 'react-native';
+import Test from './components/testComp.js'
+
 
 class ReactApp extends Component {
   render() {
     return (
       <View style={styles.container}>
+
         <Text style={styles.welcome}>
           Welcome to React Native!
         </Text>
@@ -26,6 +29,7 @@ class ReactApp extends Component {
           Press Cmd+R to reload,{'\n'}
           Cmd+D or shake for dev menu
         </Text>
+        <Test></Test>
       </View>
     );
   }
