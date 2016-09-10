@@ -32,7 +32,11 @@ var styles = StyleSheet.create({
         color: '#FF1744',
     },
     inputBox: {
-        width: 150,
-        height: 16
+        borderColor: '#90A4AE',
+        borderWidth: 1,
+        padding: 2,
+        borderRadius: 5,
+        width: 300,
+        height: 40
     }
 });
