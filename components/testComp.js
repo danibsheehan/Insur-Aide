@@ -11,7 +11,7 @@ export default class Test extends Component {
 		return (
 			<View>
 				<Text>
-          			IT WORKS
+          			IT STILL WORKS
         		</Text>
         	</View>
 			)

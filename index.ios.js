@@ -12,9 +12,23 @@ import {
   View
 } from 'react-native';
 import Test from './components/testComp.js'
+import * as firebase from 'firebase';
+var config = {
+    apiKey: "AIzaSyDmqsfVyAB0rmYpms3YczKsrFPrYTXuyes",
+    authDomain: "reactapp-a97ee.firebaseapp.com",
+    databaseURL: "https://reactapp-a97ee.firebaseio.com",
+    storageBucket: "reactapp-a97ee.appspot.com",
+};
+
+const firebaseApp = firebase.initializeApp(config);
+
 
 
 class ReactApp extends Component {
+  constructor (props) {
+    super(props)
+    this.itemsRef = firebaseApp.database().ref();
+  }
   render() {
     return (
       <View style={styles.container}>
@@ -22,7 +36,7 @@ class ReactApp extends Component {
         <Text style={styles.welcome}>
           Welcome to React Native!
         </Text>
-        <Text style={styles.instructions}>
+        <Text onPress={this._test.bind(this)} style={styles.instructions}>
           To get started, edit index.ios.js
         </Text>
         <Text style={styles.instructions}>
@@ -32,6 +46,10 @@ class ReactApp extends Component {
         <Test></Test>
       </View>
     );
+  }
+  _test() {
+    console.log("stuff")
+    console.log(this.itemsRef)
   }
 }
 
