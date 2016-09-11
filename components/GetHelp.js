@@ -2,7 +2,6 @@ import React, { Component, PropTypes } from 'react';
 import { Text, View} from 'react-native';
 import Button from './Button'
 import Store from '../store'
-import { updateUsers } from '../firebase'
 
 export default class GetHelp extends Component {
   render() {
@@ -11,8 +10,7 @@ export default class GetHelp extends Component {
         <Button text={Store.insurance} press={this._navigateToOptions.bind(this, 'Insurance')} />
         <Button text={Store.locations} press={this._navigateToOptions.bind(this, 'Location')} />
         <Button text={Store.problems} press={this._navigateToOptions.bind(this, 'Problems')} />
-        <Button text={'Search'} press={this._searchWithOptions.bind(this)} />
-
+        <Button text={'Enter'} press={this._navigateToOptions.bind(this, 'Results')} />
       </View>
     )
   }
@@ -22,16 +20,4 @@ export default class GetHelp extends Component {
       ident: cat
     })
   }
-
-  _navigateToResults(){
-    this.props.navigator.push({
-      ident: 'Browse'
-    })
-  }
-
-  _searchWithOptions(){
-    updateUsers(Store.insurance, Store.locations, Store.problems)
-    .then(_navigateToResults)
-  }
-
 }
