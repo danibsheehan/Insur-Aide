@@ -1,3 +1,3 @@
 export default store = {
-  insurance: 'none',
+  insurance: 'Select Insurance',
 }
