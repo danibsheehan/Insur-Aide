@@ -30,6 +30,14 @@ export default class NavigationApp extends Component {
         return (
           <OptionList cat="insurance" {...globalNavigatorProps}/>
         )
+      case "Location":
+        return (
+          <OptionList cat="locations" {...globalNavigatorProps}/>
+        )
+      case "Problems":
+        return (
+          <OptionList cat="problems" {...globalNavigatorProps}/>
+        )
       default:
         return <Text>'!!Route Error!!'</Text>
     }

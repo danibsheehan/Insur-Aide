@@ -69,8 +69,9 @@ class OptionList extends Component {
     }
 
     select(e) {
+        let list = this.props.cat
         console.log(e)
-        Store.insurance = e
+        Store[list] = e
         this.props.navigator.push({
         ident: "GetHelp"
     })
