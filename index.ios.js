@@ -5,8 +5,12 @@ import GetHelp from "./components/GetHelp";
 import OptionList from "./components/OptionList";
 import SignIn from "./components/SignIn";
 import Input from "./components/Input";
+<<<<<<< HEAD
+import Results from './components/Results';
+=======
 import ProfileDetail from "./components/ProfileDetail";
 import TextArea from "./components/TextArea";
+>>>>>>> master
 
 export default class NavigationApp extends Component {
   _renderScene(route, navigator){
@@ -49,6 +53,9 @@ export default class NavigationApp extends Component {
           return (
               <Input btnType="Sign Up" {...globalNavigatorProps}/>
           )
+        case 'Results':
+          return(
+            <Results {...globalNavigatorProps}/>
       case "SingleProfile":
         return (
             <ProfileDetail {...globalNavigatorProps}/>
