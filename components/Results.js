@@ -20,7 +20,11 @@ export default class Results extends Component {
     console.log(user)
     return (
         <View style={{marginTop: 50}}>
-          <MiniProfile username={user.username} title={user.title} story={user.story} problems={user.problems} profile_picture={user.profile_picture}/>
+          <MiniProfile username={user.username} 
+                      title={user.title} 
+                      story={user.story} 
+                      problems={user.problems} 
+                      profile_picture={user.profile_picture}/>
         </View>
     )
   }
