@@ -3,8 +3,10 @@ import {
   StyleSheet,
   Text,
   Image,
-  View
+  View,
+  TouchableOpacity
 } from 'react-native';
+
 
 
 class MiniProfile extends Component {
@@ -26,6 +28,11 @@ class MiniProfile extends Component {
           <Text style={styles.headline}>{this.props.title}</Text>
           <Text style={styles.text}>{this.props.story.slice(0, 100)+"..."}</Text>
           <Text style={styles.text}>{this.props.problems}</Text>
+          <TouchableOpacity onPress={()=>console.log('pressed')}>
+          <Text>
+            message
+          </Text>
+        </TouchableOpacity>
         </View>
       </View>
     )
