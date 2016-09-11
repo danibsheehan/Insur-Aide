@@ -3,6 +3,7 @@ import { Navigator, Text, View, AppRegistry } from 'react-native';
 import HomeScene from './components/HomeScene'
 import Test from "./components/Test";
 import GetHelp from "./components/GetHelp";
+import OptionList from "./components/OptionList";
 
 export default class NavigationApp extends Component {
   _renderScene(route, navigator){
@@ -23,7 +24,19 @@ export default class NavigationApp extends Component {
           )
       case "GetHelp":
         return (
-          <GetHelp />
+          <GetHelp {...globalNavigatorProps}/>
+        )
+      case "Insurance":
+        return (
+          <OptionList cat="insurance" {...globalNavigatorProps}/>
+        )
+      case "Location":
+        return (
+          <OptionList cat="locations" {...globalNavigatorProps}/>
+        )
+      case "Problems":
+        return (
+          <OptionList cat="problems" {...globalNavigatorProps}/>
         )
       default:
         return <Text>'!!Route Error!!'</Text>
