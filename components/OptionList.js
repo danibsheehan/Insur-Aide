@@ -7,49 +7,85 @@ import {
     ListView
 } from 'react-native';
 
- const insuranceCompanies = [{name:"Cr"},{name:"d"},{name:"b"},{name:"a"},{name:"test"},{name:"Cigna"}];
+import Store from '../store'
+
+const options = {
+    insurance: 
+['Roseville Insurance',
+'AARP',
+'Aetna',
+'American Family Insurance',
+'American National Insurance Company',
+'Amerigroup',
+'Anthem Blue Cross and Blue Shield',
+'Assurant',
+'Blue Cross and Blue Shield Association',
+'Celtic Insurance Company, subsidiary of Centene Corporation',
+'Centene Corporation',
+'Cigna',
+'Coventry Health Care',
+'EmblemHealth',
+'Fortis',
+'Golden Rule Insurance Company',
+'Group Health Cooperative',
+'GHI',
+'Health Net',
+'HealthMarkets',
+'HealthSpring',
+'Highmark',
+'Humana',
+'Independence Blue Cross',
+'Kaiser Permanente',
+'LifeWise Health Plan of Oregon',
+'Medical Mutual of Ohio',
+'Molina Healthcare',
+'Premera Blue Cross',
+'Principal Financial Group',
+'The Regence Group',
+'Shelter Insurance',
+'Thrivent Financial for Lutherans',
+'UnitedHealth Group',
+'Unitrin',
+'Universal American Corporation',
+'WellCare Health Plans',
+'WellPoint'],
+    locations: ["AK","AL","AR","AZ","CA","CO","CT","DC","DE","FL","GA","GU","HI","IA","ID", "IL","IN","KS","KY","LA","MA","MD","ME","MH","MI","MN","MO","MS","MT","NC","ND","NE","NH","NJ","NM","NV","NY", "OH","OK","OR","PA","PR","PW","RI","SC","SD","TN","TX","UT","VA","VI","VT","WA","WI","WV","WY"],
+    problems: ["what", "problems"],
+    
+}
+
 
 class OptionList extends Component {
     constructor(props){
         super(props)
-        // TODO: need to hook it up with real data from firebase
-        const dataSource = new ListView.DataSource({
-            rowHasChanged: (r1, r2) => r1 !== r2
-        })
-
-        this.state = {
-          data: dataSource.cloneWithRows(insuranceCompanies)
-        }
-    }
-    click(i) {
-        console.log(i)
-    }
-    options() {
-        return insuranceCompanies.map(option => {
-            return <Text onPress={this.click.bind(this, option.name)} style={styles.option}>{option.name}</Text>
-        });
+        
     }
 
+    renderList() {
+        let list = this.props.cat
+        return options[list].map((item) => {
+                return <Text text={item} key={item} onPress={this.select.bind(this, item)}>{item}</Text>
+            })
+    }
+
+    select(e) {
+        let list = this.props.cat
+        console.log(e)
+        Store[list] = e
+        this.props.navigator.push({
+        ident: "GetHelp"
+    })
+     
+    }
+    
     render() {
         return (
             <View>
-                {this.options()}
+                {this.renderList()}
             </View>
         );
     }
 }
 
-// OptionList.propTypes = {
-//     select: PropTypes.func.isRequired,
-// }
-
-const styles = StyleSheet.create({
-    list:{
-
-    },
-    option:{
-
-    },
-});
 
 export default OptionList;

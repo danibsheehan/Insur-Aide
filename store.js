@@ -1,3 +1,5 @@
-export default store = {
-  insurance: 'none',
+export default Store = {
+  insurance: 'Select Insurance',
+  locations: 'Location',
+  problems: 'Problems',
 }
