@@ -10,6 +10,7 @@ export default class GetHelp extends Component {
         <Button text={Store.insurance} press={this._navigateToOptions.bind(this, 'Insurance')} />
         <Button text={Store.locations} press={this._navigateToOptions.bind(this, 'Location')} />
         <Button text={Store.problems} press={this._navigateToOptions.bind(this, 'Problems')} />
+        <Button text={'Enter'} press={this._navigateToOptions.bind(this, 'Results')} />
       </View>
     )
   }

@@ -5,6 +5,7 @@ import GetHelp from "./components/GetHelp";
 import OptionList from "./components/OptionList";
 import SignIn from "./components/SignIn";
 import Input from "./components/Input";
+import Results from './components/Results';
 
 export default class NavigationApp extends Component {
   _renderScene(route, navigator){
@@ -46,6 +47,10 @@ export default class NavigationApp extends Component {
         case "SignUp":
           return (
               <Input btnType="Sign Up" {...globalNavigatorProps}/>
+          )
+        case 'Results':
+          return(
+            <Results {...globalNavigatorProps}/>
           )
       default:
         return <Text>'!!Route Error!!'</Text>
