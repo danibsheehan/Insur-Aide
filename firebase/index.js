@@ -18,7 +18,7 @@ function createUser (name, location, story, image, badges, insurance, problems) 
       username: name,
       location: location,
       insurance: insurance,
-      problems:problems,
+      problems: problems,
       story: story,
       badges: 0,
       profile_picture : image
@@ -40,7 +40,7 @@ function updateUsers (insurance, location, problems) {
        //   // get children as an array
            var users = [];
            snap.forEach((child) => {
-              if(insurance === child.val().name) && location === child.val().name && problems === problems){
+              if(insurance === child.val().insurance && location === child.val().location && problems === child.val().problems){
                 users.push({
                   username: child.val().username,
                   location: child.val().location,
