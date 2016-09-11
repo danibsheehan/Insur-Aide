@@ -7,15 +7,12 @@ import {
     ListView
 } from 'react-native';
 
+ const insuranceCompanies = [{name:"Cr"},{name:"d"},{name:"b"},{name:"a"},{name:"test"},{name:"Cigna"}];
 
 class OptionList extends Component {
     constructor(props){
         super(props)
-        this.renderRow = this.renderRow.bind(this)
-
         // TODO: need to hook it up with real data from firebase
-        const insuranceCompanies = [{name:"Cigna"},{name:"Cigna"},{name:"Cigna"},{name:"Cigna"},{name:"Cigna"},{name:"Cigna"}];
-
         const dataSource = new ListView.DataSource({
             rowHasChanged: (r1, r2) => r1 !== r2
         })
@@ -24,25 +21,27 @@ class OptionList extends Component {
           data: dataSource.cloneWithRows(insuranceCompanies)
         }
     }
-
-    renderRow(option) {
-        return (
-            <View style={styles.list} onPress={this.props.select}>
-                    <Text style={styles.option}>{option.name}</Text>
-            </View>
-        )
+    click(i) {
+        console.log(i)
+    }
+    options() {
+        return insuranceCompanies.map(option => {
+            return <Text onPress={this.click.bind(this, option.name)} style={styles.option}>{option.name}</Text>
+        });
     }
 
     render() {
         return (
-            <ListView dataSource={this.state.data} renderRow={this.renderRow}/>
+            <View>
+                {this.options()}
+            </View>
         );
     }
 }
 
-OptionList.propTypes = {
-    select: PropTypes.func.isRequired,
-}
+// OptionList.propTypes = {
+//     select: PropTypes.func.isRequired,
+// }
 
 const styles = StyleSheet.create({
     list:{

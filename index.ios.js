@@ -3,6 +3,10 @@ import { Navigator, Text, View, AppRegistry } from 'react-native';
 import HomeScene from './components/HomeScene'
 import Test from "./components/Test";
 import GetHelp from "./components/GetHelp";
+import Menu from "./components/menu";
+import ResultList from './components/ResultList';
+import OptionList from './components/OptionList'
+import { getAllUsers } from "./firebase"
 
 export default class NavigationApp extends Component {
   _renderScene(route, navigator){
@@ -25,16 +29,18 @@ export default class NavigationApp extends Component {
         return (
           <GetHelp />
         )
+      case "Menu":
+        return (<OptionList />);
+      case "Browse":
+        return (<ResultList users="users" />);
       default:
         return <Text>'!!Route Error!!'</Text>
     }
-
   }
-
   render() {
     return (
       <Navigator
-        initialRoute={{ ident: 'Home' }}
+        initialRoute={{ ident: 'Menu' }}
         renderScene={this._renderScene}
         configureScene={(route) => ({
           ...route.sceneConfig || Navigator.SceneConfigs.FloatFromRight })} 

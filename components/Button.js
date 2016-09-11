@@ -20,10 +20,10 @@ export default class Button extends Component {
   }
 };
 
-Button.propTypes = {
-  press : PropTypes.func.isRequired,
-  text : PropTypes.string.isRequired,
-} 
+// Button.propTypes = {
+//   press : PropTypes.func.isRequired,
+//   text : PropTypes.string.isRequired,
+// } 
 
 // if we are customizing the button color, use a default color
 // Button.defaultProps = {
