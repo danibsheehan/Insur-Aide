@@ -1,4 +1,5 @@
 import React, { Component, PropTypes } from 'react';
+import { usersRef } from "../firebase"
 import {
     StyleSheet,
     Text,
@@ -7,17 +8,13 @@ import {
     ListView
 } from 'react-native';
 
-
-
-
 class ResultList extends Component {
     constructor(props){
         super(props)
         this.renderRow = this.renderRow.bind(this)
-
+        this.userRef = usersRef
         // TODO: need to hook it up with real data from firebase
         const fakeData = [{img: 'https://facebook.github.io/react/img/logo_og.png', name:"Taffy", sum:"something"},{img: 'https://facebook.github.io/react/img/logo_og.png', name:"Taffy", sum:"something"},{img: 'https://facebook.github.io/react/img/logo_og.png', name:"Taffy", sum:"something"},{img: 'https://facebook.github.io/react/img/logo_og.png', name:"Taffy", sum:"something"}];
-
         const dataSource = new ListView.DataSource({
             rowHasChanged: (r1, r2) => r1 !== r2
         })
@@ -26,7 +23,6 @@ class ResultList extends Component {
           data: dataSource.cloneWithRows(fakeData)
         }
     }
-
     renderRow(profile) {
         return (
             <View style={styles.list}>

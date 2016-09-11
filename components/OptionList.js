@@ -28,7 +28,7 @@ class OptionList extends Component {
     renderRow(option) {
         return (
             <View style={styles.list} onPress={this.props.select}>
-                    <Text style={styles.option}>{option.name}</Text>
+                <Text style={styles.option}>{option.name}</Text>
             </View>
         )
     }
