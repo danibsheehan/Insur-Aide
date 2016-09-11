@@ -34,8 +34,8 @@ class MiniProfile extends Component {
 MiniProfile.propTypes = {
   username : PropTypes.string.isRequired,
   headline : PropTypes.string.isRequired,
-  categories : PropTypes.array.isRequired,
-  insurers : PropTypes.array.isRequired,
+  categories : PropTypes.array,
+  insurers : PropTypes.array,
 }
 
 var styles =  StyleSheet.create({
