@@ -3,6 +3,7 @@ import {
   AppRegistry,
   StyleSheet,
   Text,
+  Image,
   View
 } from 'react-native';
 
@@ -12,7 +13,7 @@ class MiniProfile extends Component {
 		return (
 			<View style={styles.profileComp}>
 				<View style={styles.imgView}>
-					<Text >{this.props.profileData.imgUrl}</Text>
+					<Image style={{width: 90, height: 90}} source={require("../images/default-avatar.png")}></Image>
 				</View>
 				<View style={styles.userDetails}>
 					<Text style={styles.name}>{this.props.profileData.username}</Text>
@@ -21,6 +22,7 @@ class MiniProfile extends Component {
 					<Text style={styles.text}>{this.props.profileData.insurers.join(', ')}</Text>
 				</View>
 			</View>
+
 		)
 	}
 }
@@ -30,9 +32,7 @@ var styles =  StyleSheet.create({
 	userDetails: {width: 250, height: 100, padding: 5},
 	name: {fontSize: 20, fontWeight: 'bold'},
 	headline: {fontSize: 16, marginVertical: 5},
-	text: {fontSize: 12},
-	separator: {border}
-
+	text: {fontSize: 12}
 })
 
 
