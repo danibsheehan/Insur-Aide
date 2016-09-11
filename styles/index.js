@@ -4,11 +4,11 @@ const lightGreen = '#80DEEA'
 const medGreen = '#039BE5'
 
 
-const stylesObj =  {
+const stylesObj = {
     body: {
         backgroundColor: medGreen,
         alignSelf: 'stretch',
-        height:5000,
+        height: 5000,
     },
     logo: {
         fontSize: 40,
@@ -50,9 +50,18 @@ const stylesObj =  {
         textAlign: 'center',
         padding: 6,
         margin: 2
+    },
+    tagline: {
+        color: 'white',
+        textAlign: 'center'
+    },
+    profileComp: { flex: 1, flexDirection: 'row', margin:10, justifyContent: 'space-around'},
+    imgView: { width: 100, height: 100, backgroundColor: 'white', justifyContent: 'center', alignItems: 'center' },
+    userDetails: { width: 250, height: 100, padding: 5},
+    name: { fontSize: 20, fontWeight: 'bold', color: '#039BE5',marginLeft: 50},
+    headline: { fontSize: 16, marginVertical: 5, color: '#039BE5',marginLeft: 50},
+    text: { fontSize: 12, color: '#039BE5',marginLeft: 50 }
 
-    
-    }
 }
 
 export { stylesObj }

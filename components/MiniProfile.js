@@ -6,7 +6,8 @@ import {
   View,
   TouchableOpacity
 } from 'react-native';
-
+import {stylesObj} from '../styles'
+const styles = StyleSheet.create(stylesObj);
 
 
 class MiniProfile extends Component {
@@ -29,8 +30,8 @@ class MiniProfile extends Component {
           <Text style={styles.text}>{this.props.story.slice(0, 100)+"..."}</Text>
           <Text style={styles.text}>{this.props.problems}</Text>
           <TouchableOpacity onPress={()=>console.log('pressed')}>
-          <Text>
-            message
+          <Text style={{color: '#039BE5', backgroundColor: 'white', padding: 2, textAlign: 'center', marginTop: 1}}>
+            MESSAGE
           </Text>
         </TouchableOpacity>
         </View>
@@ -46,14 +47,9 @@ MiniProfile.propTypes = {
   problems : PropTypes.string,
 }
 
-var styles =  StyleSheet.create({
-  profileComp: {flex:1, flexDirection: 'row',marginTop: 10, justifyContent:'space-around'},
-  imgView: {width: 100, height: 100, backgroundColor: "lightgray", justifyContent: 'center', alignItems: 'center'},
-  userDetails: {width: 250, height: 100, padding: 5},
-  name: {fontSize: 20, fontWeight: 'bold'},
-  headline: {fontSize: 16, marginVertical: 5},
-  text: {fontSize: 12}
-})
+// var styles =  StyleSheet.create({
+
+// })
 
 
 export default MiniProfile

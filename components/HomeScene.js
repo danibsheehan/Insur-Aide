@@ -11,6 +11,8 @@ export default class HomeScene extends Component {
         <Text style={styles.logo}>Insur-Aide</Text>
           <Button text={'I need help'} press={this._navigateToGetHelp.bind(this)}/>
           <Button text={'I can help'} press={this._navigateToHelp.bind(this)}/>
+          <Text style={styles.tagline}>Got insurance problems?</Text>
+          <Text style={styles.tagline}>Connect with someone for help!</Text>
       </View>
     )
   }

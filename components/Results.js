@@ -1,7 +1,9 @@
 import React, { Component, PropTypes } from 'react';
-import { Text, View, ListView} from 'react-native';
+import { Text, View, ListView, StyleSheet} from 'react-native';
 import MiniProfile from './MiniProfile';
 import Store from '../store';
+import {stylesObj} from '../styles'
+const styles = StyleSheet.create(stylesObj);
 
 export default class Results extends Component {
 
@@ -19,7 +21,7 @@ export default class Results extends Component {
   _renderUser(user){
     console.log(user)
     return (
-        <View style={{marginTop: 50}}>
+        <View style={{margin: 50}}>
           <MiniProfile username={user.username} 
                       title={user.title} 
                       story={user.story} 
