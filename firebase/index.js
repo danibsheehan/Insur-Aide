@@ -28,7 +28,7 @@ function createUser (name, location, story, image, badges, insurance, problems) 
 function createMessage (message, to, From) {
 	messages.push({
       message: message,
-      to: to,//userName
+      to: To,//userName
       from: From//userName
     });
 }
