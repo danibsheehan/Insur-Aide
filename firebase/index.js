@@ -34,6 +34,7 @@ function createMessage (message, to, From) {
 }
 
 function updateUsers (insurance, location, problems) {
+  console.log('not working?')
  //store.loc, ins, ect
  return new Promise ((res, rej) => {
      usersRef.on('value', (snap) => {
