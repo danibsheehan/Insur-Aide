@@ -3,6 +3,7 @@ import { Navigator, Text, View, AppRegistry } from 'react-native';
 import HomeScene from './components/HomeScene'
 import GetHelp from "./components/GetHelp";
 import OptionList from "./components/OptionList";
+import ResultList from './components/ResultList'
 import SignIn from "./components/SignIn";
 import Input from "./components/Input";
 import Results from './components/Results';
@@ -42,6 +43,10 @@ export default class NavigationApp extends Component {
       case "Problems":
         return (
           <OptionList cat="problems" {...globalNavigatorProps}/>
+        )
+      case "Browse":
+        return (
+          <ResultList/>
         )
       case "SignIn":
         return (
