@@ -21,7 +21,6 @@ class MiniProfile extends Component {
 					<Text style={styles.text}>{this.props.insurers.join(', ')}</Text>
 				</View>
 			</View>
-
 		)
 	}
 }

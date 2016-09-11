@@ -1,9 +1,8 @@
 import React, { Component, PropTypes } from 'react';
 import { AppRegistry, Text, TextInput, View, TouchableOpacity } from 'react-native';
-import { styles } from '../styles'
 import Button from './Button'
 
-export default class Input extends Component {
+export default class SignIn extends Component {
     constructor(props) {
     	super(props)
     }

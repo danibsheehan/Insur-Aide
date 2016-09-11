@@ -1,7 +1,6 @@
 import React, { Component, PropTypes } from 'react';
 import { Navigator, Text, View, AppRegistry } from 'react-native';
 import HomeScene from './components/HomeScene'
-import Test from "./components/Test";
 import GetHelp from "./components/GetHelp";
 import OptionList from "./components/OptionList";
 import SignIn from "./components/SignIn";
