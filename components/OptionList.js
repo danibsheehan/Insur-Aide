@@ -7,7 +7,9 @@ import {
     ListView
 } from 'react-native';
 
-import Store from '../store'
+import Store from '../store';
+import {stylesObj} from '../styles'
+const styles = StyleSheet.create(stylesObj);
 
 const options = {
     insurance:
@@ -42,7 +44,7 @@ class OptionList extends Component {
     renderList() {
         let list = this.props.cat
         return options[list].map((item) => {
-                return <Text text={item} key={item} onPress={this.select.bind(this, item)}>{item}</Text>
+                return <Text style={styles.listText} text={item} key={item} onPress={this.select.bind(this, item)}>{item}</Text>
             })
     }
 
@@ -57,7 +59,7 @@ class OptionList extends Component {
 
     render() {
         return (
-            <View>
+            <View style={styles.list}>
                 {this.renderList()}
             </View>
         );

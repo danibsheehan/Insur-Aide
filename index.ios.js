@@ -1,5 +1,5 @@
 import React, { Component, PropTypes } from 'react';
-import { Navigator, Text, View, AppRegistry } from 'react-native';
+import { Navigator, Text, View, StyleSheet, AppRegistry } from 'react-native';
 import HomeScene from './components/HomeScene'
 import GetHelp from "./components/GetHelp";
 import OptionList from "./components/OptionList";
@@ -9,6 +9,8 @@ import Input from "./components/Input";
 import Results from './components/Results';
 import ProfileDetail from "./components/ProfileDetail";
 import TextArea from "./components/TextArea";
+import { stylesObj } from './styles'
+const styles = StyleSheet.create(stylesObj);
 
 
 export default class NavigationApp extends Component {
@@ -18,8 +20,7 @@ export default class NavigationApp extends Component {
     console.log(route)
     switch(route.ident) {
       case "Home":
-        return ( <View style={{marginTop: 50}}>
-            <Text style={{textAlign: 'center'}}>Insur-Aide</Text>
+        return ( <View style={styles.body}>
             <HomeScene {...globalNavigatorProps}
             />
             </View>
