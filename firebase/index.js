@@ -1,4 +1,5 @@
 import * as firebase from 'firebase';
+import Store from '../store'
 
 var config = {
     apiKey: "AIzaSyDmqsfVyAB0rmYpms3YczKsrFPrYTXuyes",
@@ -34,26 +35,29 @@ function createMessage (message, to, From) {
 }
 
 function updateUsers (insurance, location, problems) {
-  console.log('not working?')
+
  //store.loc, ins, ect
  return new Promise ((res, rej) => {
      usersRef.on('value', (snap) => {
        //   // get children as an array
            var users = [];
            snap.forEach((child) => {
-              if(insurance === child.val().insurance && location === child.val().location && problems === child.val().problems){
+              if(insurance === child.val().insurance || location === child.val().location || problems === child.val().problems){
                 users.push({
                   username: child.val().username,
                   location: child.val().location,
                   insurance: child.val().insurance,
                   problems: child.val().problems,
+                  title: child.val().title,
                   story: child.val().story,
                   badges: 0,
-                  profile_picture : image
+                  profile_picture : child.val().profile_picture
                });
               }
                
            });
+           Store.users = users
+          console.log('after firebase',users)
            res(users)
      }, function (err) {
        rej(err)

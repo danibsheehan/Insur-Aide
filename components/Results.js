@@ -1,15 +1,34 @@
 import React, { Component, PropTypes } from 'react';
-import { Text, View} from 'react-native';
+import { Text, View, ListView} from 'react-native';
 import MiniProfile from './MiniProfile';
 import Store from '../store';
 
 export default class Results extends Component {
-  render() {
-    console.log(Store.users)
+
+  constructor(props){
+    super(props)
+    const users = Store.users
+    const dataSource = new ListView.DataSource({
+        rowHasChanged: (r1, r2) => r1 !== r2
+    })
+    this.state = {
+      data: dataSource.cloneWithRows(users)
+    }
+  }
+  
+  _renderUser(user){
+    console.log(user)
     return (
-      <View style={{marginTop: 50}}>
-        <MiniProfile username='taffy' headline='is cool' categories={[1,2,3]} insurers={[4,5,6]}/>
-      </View>
+        <View style={{marginTop: 50}}>
+          <MiniProfile username={user.username} title={user.title} story={user.story} problems={user.problems} profile_picture={user.profile_picture}/>
+        </View>
+    )
+  }
+
+  render() {
+    
+    return (
+      <ListView dataSource={this.state.data} renderRow={this._renderUser}/>
     )
   }
 

@@ -2,7 +2,7 @@ import React, { Component, PropTypes } from 'react';
 import { Text, View} from 'react-native';
 import Button from './Button'
 import Store from '../store'
-import updateUsers from '../firebase'
+import {updateUsers} from '../firebase'
 export default class GetHelp extends Component {
   render() {
     return (
@@ -16,6 +16,7 @@ export default class GetHelp extends Component {
   }
 
   _navigateToOptions(cat){
+    console.log('gethelp',Store.users)
     this.props.navigator.push({
       ident: cat
     })
@@ -23,6 +24,6 @@ export default class GetHelp extends Component {
 
   _navigateToResults () {
     updateUsers(Store.insurance, Store.location, Store.problems)
-    .then(_navigateToOptions('Results'))
+    .then(()=>this._navigateToOptions('Results'))
   }
 }
