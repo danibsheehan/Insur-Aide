@@ -7,7 +7,12 @@ import Button from './components/Button'
 export default class ProfileDetail extends Component {
 	constructor(props) {
 		super(props)
-		this.props.text = 'Message';
+	}
+
+	goToMessage(){
+		this.props.navigator.push({
+			ident: "Message"
+		})
 	}
 	render() {
 		return {
@@ -18,7 +23,7 @@ export default class ProfileDetail extends Component {
 				<TextArea>{this.props.story}</TextArea>
 			</View>
 			//button to message user
-			<Button></Button>
+			<Button text="Message Me" press={this.goToMessage.bind(this)}></Button>
 		}
 	}
 }

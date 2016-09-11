@@ -8,9 +8,15 @@ import {
 
 
 class MiniProfile extends Component {
+    constructor(props){
+        super(props)
+    }
+    goToProfile(user){
+        console.log(user)
+    }
 	render () {
 		return (
-			<View style={styles.profileComp}>
+			<View style={styles.profileComp} onPress={this.goToProfile.bind(this, this.props)}>
 				<View style={styles.imgView}>
 					<Image style={{width: 90, height: 90}} source={{uri:'https://www.google.com/url?sa=i&rct=j&q=&esrc=s&source=images&cd=&cad=rja&uact=8&ved=0ahUKEwjryq_5wIfPAhUF8z4KHavfB4kQjRwIBw&url=http%3A%2F%2Fjames-camerons-avatar.wikia.com%2Fwiki%2FGrace_Augustine&psig=AFQjCNEV_j6WECjywT2141EASyE3dOqmQA&ust=1473689933032034'}}></Image>
 				</View>
