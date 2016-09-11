@@ -15,16 +15,17 @@ class MiniProfile extends Component {
         console.log(user)
     }
   render () {
+    console.log('in mini profile', this.props)
     return (
       <View style={styles.profileComp} onPress={this.goToProfile.bind(this, this.props)}>
         <View style={styles.imgView}>
-          <Image style={{width: 90, height: 90}} source={{uri:'https://www.google.com/url?sa=i&rct=j&q=&esrc=s&source=images&cd=&cad=rja&uact=8&ved=0ahUKEwjryq_5wIfPAhUF8z4KHavfB4kQjRwIBw&url=http%3A%2F%2Fjames-camerons-avatar.wikia.com%2Fwiki%2FGrace_Augustine&psig=AFQjCNEV_j6WECjywT2141EASyE3dOqmQA&ust=1473689933032034'}}></Image>
+          <Image style={{width: 90, height: 90}} source={{uri:this.props.profile_picture}}></Image>
         </View>
         <View style={styles.userDetails}>
           <Text style={styles.name}>{this.props.username}</Text>
-          <Text style={styles.headline}>{this.props.headline}</Text>
-          <Text style={styles.text}>{this.props.categories.join(', ')}</Text>
-          <Text style={styles.text}>{this.props.insurers.join(', ')}</Text>
+          <Text style={styles.headline}>{this.props.title}</Text>
+          <Text style={styles.text}>{this.props.story.slice(0, 100)+"..."}</Text>
+          <Text style={styles.text}>{this.props.problems}</Text>
         </View>
       </View>
     )
@@ -33,9 +34,9 @@ class MiniProfile extends Component {
 
 MiniProfile.propTypes = {
   username : PropTypes.string.isRequired,
-  headline : PropTypes.string.isRequired,
-  categories : PropTypes.array,
-  insurers : PropTypes.array,
+  title : PropTypes.string.isRequired,
+  story : PropTypes.string,
+  problems : PropTypes.string,
 }
 
 var styles =  StyleSheet.create({

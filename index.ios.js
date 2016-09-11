@@ -19,7 +19,7 @@ export default class NavigationApp extends Component {
     switch(route.ident) {
       case "Home":
         return ( <View style={{marginTop: 50}}>
-            <Text style={{textAlign: 'center'}}>Penetrating the Bureaucracy</Text>
+            <Text style={{textAlign: 'center'}}>Insur-Aide</Text>
             <HomeScene {...globalNavigatorProps}
             />
             </View>

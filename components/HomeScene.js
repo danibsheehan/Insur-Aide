@@ -6,7 +6,6 @@ export default class HomeScene extends Component {
   render() {
     return (
       <View>
-        <Text>Current Scene: { this.props.title }</Text>
           <Button text={'I need help'} press={this._navigateToGetHelp.bind(this)}/>
           <Button text={'I can help'} press={this._navigateToHelp.bind(this)}/>
       </View>
