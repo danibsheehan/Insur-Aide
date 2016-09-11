@@ -4,6 +4,7 @@ import HomeScene from './components/HomeScene'
 import Test from "./components/Test";
 import GetHelp from "./components/GetHelp";
 import OptionList from "./components/OptionList";
+import ResultsList from './components/ResultsList'
 
 export default class NavigationApp extends Component {
   _renderScene(route, navigator){
@@ -37,6 +38,10 @@ export default class NavigationApp extends Component {
       case "Problems":
         return (
           <OptionList cat="problems" {...globalNavigatorProps}/>
+        )
+      case "Browse":
+        return (
+          <ResultsList/>
         )
       default:
         return <Text>'!!Route Error!!'</Text>

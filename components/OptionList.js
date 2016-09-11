@@ -50,7 +50,7 @@ const options = {
 'WellCare Health Plans',
 'WellPoint'],
     locations: ["AK","AL","AR","AZ","CA","CO","CT","DC","DE","FL","GA","GU","HI","IA","ID", "IL","IN","KS","KY","LA","MA","MD","ME","MH","MI","MN","MO","MS","MT","NC","ND","NE","NH","NJ","NM","NV","NY", "OH","OK","OR","PA","PR","PW","RI","SC","SD","TN","TX","UT","VA","VI","VT","WA","WI","WV","WY"],
-    problems: ["what", "problems"],
+    problems: ["what", "problems", "cancer", 'alzheimer'],
     
 }
 
@@ -68,10 +68,9 @@ class OptionList extends Component {
             })
     }
 
-    select(e) {
+    select(name) {
         let list = this.props.cat
-        console.log(e)
-        Store[list] = e
+        Store[list] = name
         this.props.navigator.push({
         ident: "GetHelp"
     })
