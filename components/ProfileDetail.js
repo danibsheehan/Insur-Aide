@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { View } from 'react-native';
-import TextArea from './TextArea'
-import MiniProfile from './MiniProfile'
-import Button from './Button'
+import TextArea from './TextArea';
+import MiniProfile from './MiniProfile';
+import Button from './Button';
 
 export default class ProfileDetail extends Component {
 	constructor(props) {

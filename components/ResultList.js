@@ -7,9 +7,6 @@ import {
     ListView
 } from 'react-native';
 
-
-
-
 class ResultList extends Component {
     constructor(props){
         super(props)
