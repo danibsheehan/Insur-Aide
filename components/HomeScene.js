@@ -1,12 +1,14 @@
 import React, { Component, PropTypes } from 'react';
-import { Text, View} from 'react-native';
+import { Text, View, StyleSheet} from 'react-native';
 import Button from './Button'
+import { stylesObj } from '../styles'
+const styles = StyleSheet.create(stylesObj);
 
 export default class HomeScene extends Component {
   render() {
     return (
       <View>
-        <Text>Current Scene: { this.props.title }</Text>
+        <Text style={styles.logo}>Insur</Text>
           <Button text={'I need help'} press={this._navigateToGetHelp.bind(this)}/>
           <Button text={'I can help'} press={this._navigateToHelp.bind(this)}/>
       </View>
@@ -26,7 +28,6 @@ export default class HomeScene extends Component {
   }
 
 }
-
 
 HomeScene.propTypes = {
   title: PropTypes.string,

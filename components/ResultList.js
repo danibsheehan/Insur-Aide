@@ -17,7 +17,6 @@ class ResultList extends Component {
 
         // TODO: need to hook it up with real data from firebase
         const fakeData = [{img: 'https://facebook.github.io/react/img/logo_og.png', name:"Taffy", sum:"something"},{img: 'https://facebook.github.io/react/img/logo_og.png', name:"Taffy", sum:"something"},{img: 'https://facebook.github.io/react/img/logo_og.png', name:"Taffy", sum:"something"},{img: 'https://facebook.github.io/react/img/logo_og.png', name:"Taffy", sum:"something"}];
-
         const dataSource = new ListView.DataSource({
             rowHasChanged: (r1, r2) => r1 !== r2
         })

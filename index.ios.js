@@ -1,19 +1,20 @@
 import React, { Component, PropTypes } from 'react';
-import { Navigator, Text, View, AppRegistry } from 'react-native';
+import { Navigator, Text, View, AppRegistry, StyleSheet } from 'react-native';
 import HomeScene from './components/HomeScene'
 import GetHelp from "./components/GetHelp";
 import OptionList from "./components/OptionList";
 import SignIn from "./components/SignIn";
 import Input from "./components/Input";
+import { stylesObj } from './styles'
+const styles = StyleSheet.create(stylesObj);
 
 export default class NavigationApp extends Component {
   _renderScene(route, navigator){
     var globalNavigatorProps = {navigator}
 
-    console.log(route)
     switch(route.ident) {
       case "Home":
-        return ( <View style={{marginTop: 50}}>
+        return ( <View style={styles.body}>
             <Text style={{textAlign: 'center'}}>Penetrating the Bureaucracy</Text>
             <HomeScene {...globalNavigatorProps}
             />
