@@ -11,7 +11,7 @@ const firebaseApp = firebase.initializeApp(config);
 const usersRef = firebaseApp.database().ref("users");
 const messagesRef = firebaseApp.database().ref("users");
 
-export {firebaseApp, getAllUsers, usersRef, messagesRef, createUser, createMessage}
+export {firebaseApp, getUsersByLocation, getAllUsers, usersRef, messagesRef, createUser, createMessage}
 
 function createUser (name, location, story, image, badges) {
 	usersRef.child(name).set({
@@ -21,6 +21,24 @@ function createUser (name, location, story, image, badges) {
       badges: 0,
       profile_picture : image
     });
+}
+//(arr, str) => promise(arr)
+function getUsersByLocation (users, state) {
+  return new Promise ((res, rej) => {
+    usersRef.on('value', (snap) => {
+      var users = [];
+      snap.forEach((child) => {
+          if (child.val().location === state) {
+            users.push({
+              name: child.val().name,
+              location: child.val().name,
+              _key: child.key
+            });
+          }
+      });
+      res(users);
+    });
+  });
 }
 
 function getAllUsers () {

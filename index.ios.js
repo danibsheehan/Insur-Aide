@@ -29,11 +29,7 @@ export default class NavigationApp extends Component {
           <GetHelp />
         )
       case "Browse":
-        // getAllUsers()
-        // .then(users => {
-        //   console.log("HERERE!!!!", users)
-          return (<ResultList users="users" />)
-        // });
+          return (<ResultList users="users" />);
       default:
         return <Text>'!!Route Error!!'</Text>
     }
