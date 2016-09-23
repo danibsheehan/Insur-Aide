@@ -14,26 +14,30 @@ class MiniProfile extends Component {
     constructor(props){
         super(props)
     }
-    goToProfile(user){
-        console.log(user)
+    navigateToSingleProfile(cat) {
+      console.log('singleProfile',this.props.navigator)
+      this.props.navigator.push({
+        ident: cat
+      })
+    }
+    goToProfile(){
+        //navigate to individual user's page
+        this.navigateToSingleProfile('SingleProfile')
     }
   render () {
-    console.log('in mini profile', this.props)
+    console.log('in mini profile', this.props.navigator)
     return (
-      <View style={styles.profileComp} onPress={this.goToProfile.bind(this, this.props)}>
+      <View style={styles.profileComp}>
         <View style={styles.imgView}>
           <Image style={{width: 90, height: 90}} source={{uri:this.props.profile_picture}}></Image>
         </View>
         <View style={styles.userDetails}>
+          <TouchableOpacity onPress={this.goToProfile.bind(this, this.props)}>
           <Text style={styles.name}>{this.props.username}</Text>
           <Text style={styles.headline}>{this.props.title}</Text>
           <Text style={styles.text}>{this.props.story.slice(0, 100)+"..."}</Text>
           <Text style={styles.text}>{this.props.problems}</Text>
-          <TouchableOpacity onPress={()=>console.log('pressed')}>
-          <Text style={{color: '#039BE5', backgroundColor: 'white', padding: 2, textAlign: 'center', marginTop: 1}}>
-            MESSAGE
-          </Text>
-        </TouchableOpacity>
+          </TouchableOpacity>
         </View>
       </View>
     )
@@ -46,10 +50,5 @@ MiniProfile.propTypes = {
   story : PropTypes.string,
   problems : PropTypes.string,
 }
-
-// var styles =  StyleSheet.create({
-
-// })
-
 
 export default MiniProfile

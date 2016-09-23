@@ -1,6 +1,6 @@
 export default Store = {
-  insurance: 'Select Insurance',
+  insurance: 'Insurance',
   locations: 'Location',
-  problems: 'Problems',
+  problems: 'Health Issue',
   users: []
 }

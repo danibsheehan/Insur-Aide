@@ -19,7 +19,7 @@ export default class Results extends Component {
   }
   
   _renderUser(user){
-    console.log(user)
+    console.log("rendering, rendering", user)
     return (
         <View style={{margin: 50}}>
           <MiniProfile username={user.username} 
@@ -34,7 +34,7 @@ export default class Results extends Component {
   render() {
     
     return (
-      <ListView dataSource={this.state.data} renderRow={this._renderUser}/>
+      <ListView style={styles.results} dataSource={this.state.data} renderRow={this._renderUser}/>
     )
   }
 
